@@ -79,7 +79,12 @@ class Tugas4FlutterWidget extends StatelessWidget {
           ),
           ListTile(
             contentPadding: const EdgeInsets.all(8),
-            leading: Image.asset("assets/images/tugas_4flutter/CPU_1.jpg"),
+            leading: Image.asset(
+              "assets/images/tugas_4flutter/CPU_1.jpg",
+              height: 50,
+              width: 50,
+              fit: BoxFit.fill,
+            ),
             title: Text(
               "CPU",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -89,7 +94,12 @@ class Tugas4FlutterWidget extends StatelessWidget {
           ),
           ListTile(
             contentPadding: const EdgeInsets.all(8),
-            leading: Image.asset("assets/images/tugas_4flutter/Monitor.png"),
+            leading: Image.asset(
+              "assets/images/tugas_4flutter/Monitor.png",
+              height: 50,
+              width: 50,
+              fit: BoxFit.fill,
+            ),
             title: Text(
               "Monitor",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -99,7 +109,12 @@ class Tugas4FlutterWidget extends StatelessWidget {
           ),
           ListTile(
             contentPadding: const EdgeInsets.all(8),
-            leading: Image.asset("assets/images/tugas_4flutter/Mouse.jpg"),
+            leading: Image.asset(
+              "assets/images/tugas_4flutter/Mouse.jpg",
+              height: 50,
+              width: 50,
+              fit: BoxFit.fill,
+            ),
             title: Text(
               "Mouse",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -109,7 +124,12 @@ class Tugas4FlutterWidget extends StatelessWidget {
           ),
           ListTile(
             contentPadding: const EdgeInsets.all(8),
-            leading: Image.asset("assets/images/tugas_4flutter/keyboard.jpg"),
+            leading: Image.asset(
+              "assets/images/tugas_4flutter/keyboard.jpg",
+              height: 50,
+              width: 50,
+              fit: BoxFit.fill,
+            ),
             title: Text(
               "Keyboard",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -119,7 +139,12 @@ class Tugas4FlutterWidget extends StatelessWidget {
           ),
           ListTile(
             contentPadding: const EdgeInsets.all(8),
-            leading: Image.asset("assets/images/tugas_4flutter/Headset.jpg"),
+            leading: Image.asset(
+              "assets/images/tugas_4flutter/Headset.jpg",
+              height: 50,
+              width: 50,
+              fit: BoxFit.fill,
+            ),
             title: Text(
               "Headset",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
