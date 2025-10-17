@@ -13,9 +13,11 @@ class _Tugas5FlutterState extends State<Tugas5Flutter> {
   bool showDeskripsi = false;
   bool showBox = false;
   int counter = 0;
+  int gesture = 0;
   var name = "Ariq Surya Wardhana";
   var desc =
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
+  var box = "Terima kasih sudah mengunjungi!";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +95,7 @@ class _Tugas5FlutterState extends State<Tugas5Flutter> {
             ),
             Divider(height: 20),
             Container(
-              height: 400,
+              height: 360,
               width: double.infinity,
               margin: EdgeInsets.all(8),
               padding: EdgeInsets.all(12),
@@ -146,9 +148,56 @@ class _Tugas5FlutterState extends State<Tugas5Flutter> {
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     boxShadow: [BoxShadow(color: Colors.black, blurRadius: 4)],
                   ),
+                  child: GestureDetector(
+                    onTap: () {
+                      debugPrint("Ditekan Sekali");
+                      gesture++;
+                      setState(() {});
+                    },
+                    onDoubleTap: () {
+                      debugPrint("Ditekan Dua Kali");
+                      gesture += 2;
+                      setState(() {});
+                    },
+                    onLongPress: () {
+                      debugPrint("Tahan Lama");
+                      gesture += 3;
+                      setState(() {});
+                    },
+                    child: Column(
+                      children: [
+                        Text(
+                          "Tekan Aku!",
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        ),
+                        Text(
+                          gesture.toStringAsFixed(0),
+                          style: TextStyle(
+                            fontSize: 44,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  height: 120,
+                  width: 120,
+                  margin: EdgeInsets.all(8),
+                  padding: EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Colors.lightBlue,
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    boxShadow: [BoxShadow(color: Colors.black, blurRadius: 4)],
+                  ),
                   child: Column(
                     children: [
-                      Text("Counter", style: TextStyle(fontSize: 20)),
+                      Text(
+                        "Counter",
+                        style: TextStyle(fontSize: 20, color: Colors.white),
+                      ),
                       Text(
                         counter.toStringAsFixed(0),
                         style: TextStyle(
@@ -159,7 +208,6 @@ class _Tugas5FlutterState extends State<Tugas5Flutter> {
                     ],
                   ),
                 ),
-                Spacer(),
               ],
             ),
             Container(
@@ -177,10 +225,13 @@ class _Tugas5FlutterState extends State<Tugas5Flutter> {
                 splashColor: Colors.white,
                 onTap: () {
                   debugPrint("Kotak disentuh");
+                  showBox = !showBox;
                   setState(() {});
                 },
               ),
             ),
+            if (showBox)
+              Text(" $box ", style: TextStyle(fontSize: 16, color: Colors.red)),
           ],
         ),
       ),
