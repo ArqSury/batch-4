@@ -79,9 +79,7 @@ class _Tugas5FlutterState extends State<Tugas5Flutter> {
               height: 50,
               width: 50,
               margin: EdgeInsets.all(8),
-              alignment: Alignment.center,
               child: IconButton(
-                alignment: Alignment.topCenter,
                 onPressed: () {
                   setState(() {});
                   showFavorite = !showFavorite;
@@ -89,10 +87,10 @@ class _Tugas5FlutterState extends State<Tugas5Flutter> {
                 icon: Icon(
                   showFavorite ? Icons.favorite : Icons.favorite,
                   color: showFavorite ? Colors.red : Colors.grey,
-                  size: 50,
                 ),
               ),
             ),
+            Text(showFavorite ? "Disukai" : ""),
             Divider(height: 20),
             Container(
               height: 360,
