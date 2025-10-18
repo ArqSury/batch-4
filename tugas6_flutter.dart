@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demoppkd_ariq/day_13/reuse/account.dart';
+import 'package:flutter_demoppkd_ariq/day_13/reuse/input_user.dart';
 
 class Tugas6Flutter extends StatefulWidget {
   const Tugas6Flutter({super.key});
@@ -13,7 +15,7 @@ class _Tugas6FlutterState extends State<Tugas6Flutter> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.white),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
@@ -36,41 +38,15 @@ class _Tugas6FlutterState extends State<Tugas6Flutter> {
               ),
             ),
             SizedBox(height: 20),
-            Container(
-              height: 76,
-              padding: EdgeInsets.all(12),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                  ),
-                  hintText: "Email",
-                ),
-              ),
-            ),
-            Stack(
+            Column(
               children: [
                 Container(
-                  height: 76,
-                  padding: EdgeInsets.all(12),
-                  child: TextField(
-                    obscureText: hide,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8)),
-                      ),
-                      hintText: "Password",
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          hide = !hide;
-                          setState(() {});
-                        },
-                        icon: Icon(
-                          hide ? Icons.visibility_off : Icons.visibility,
-                        ),
-                      ),
-                    ),
-                  ),
+                  margin: const EdgeInsets.all(12),
+                  child: UserInputWidget(hint: "Email"),
+                ),
+                Container(
+                  margin: EdgeInsets.all(12),
+                  child: UserInputWidget(hint: "Password", isPassword: true),
                 ),
               ],
             ),
@@ -82,7 +58,10 @@ class _Tugas6FlutterState extends State<Tugas6Flutter> {
                     debugPrint("Ganti Password");
                     setState(() {});
                   },
-                  child: Text("Forgot password?"),
+                  child: Text(
+                    "Forgot password?",
+                    style: TextStyle(color: Colors.black),
+                  ),
                 ),
               ],
             ),
@@ -108,16 +87,46 @@ class _Tugas6FlutterState extends State<Tugas6Flutter> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 24),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              spacing: 8,
+              children: [
+                Expanded(child: Divider(thickness: 1)),
+                Text("or"),
+                Expanded(child: Divider(thickness: 1)),
+              ],
+            ),
+            SizedBox(height: 24),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              spacing: 16,
+              children: [
+                AccountWidget(
+                  image: "assets/images/tugas_6flutter/facebook.jpg",
+                ),
+                AccountWidget(image: "assets/images/tugas_6flutter/google.png"),
+                AccountWidget(image: "assets/images/tugas_6flutter/apple.png"),
+              ],
+            ),
+            SizedBox(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  height: 1,
-                  decoration: BoxDecoration(color: Colors.black),
+                Text("Don't have an account?"),
+                TextButton(
+                  onPressed: () {
+                    debugPrint("Sign Up");
+                    setState(() {});
+                  },
+                  child: Text(
+                    "Sign Up",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
                 ),
-                Text("or"),
-                Container(height: 10),
               ],
             ),
           ],
